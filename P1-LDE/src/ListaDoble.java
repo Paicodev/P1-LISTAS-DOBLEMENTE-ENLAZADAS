@@ -16,4 +16,33 @@ public ListaDoble(int capacidad) {
     fin = -1;
     libre = 0;
 }
+
+public boolean estaVacia(){
+        return true;
+}
+
+public void agregar(int valor){
+    if(this.inicio == -1 || this.fin == -1){
+        inicio = datos[0];
+        fin = datos[0];
+        datos[0] = valor;
+        libre++;
+    }else {
+        fin = datos[libre];
+    anterior[libre] = libre -1;
+    siguiente[libre] = -1;
+    datos[libre] = valor;
+    libre++;
+    }if(libre > capacidad ){
+        System.out.println("La lista está llena\n");
+    }
+}
+
+public void mostrarAdelante(){
+    for(int sig = 0; sig < capacidad; sig++){
+        System.out.println("Dato "+sig +" : "+datos[sig]);
+        System.out.println("Anterior: " +anterior[sig]);
+        System.out.println("Siguiente: "+siguiente[sig]);
+    }
+}
 }
