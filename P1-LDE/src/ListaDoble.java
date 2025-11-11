@@ -15,6 +15,10 @@ public ListaDoble(int capacidad) {
     inicio = -1;
     fin = -1;
     libre = 0;
+    for(int i= 0; i<capacidad; i++){
+        anterior[i]=-1;
+        siguiente[i]= -1;
+    }
 }
 
 //la Lista está vacía si el inicio es nulo (-1)
@@ -63,5 +67,24 @@ public void agregar(int valor){
         libre++;
 }
 
+public void mostrarAdelante() {
+    //si esta vacia solo imprimimos un mensaje
+        if (estaVacia()) {
+            System.out.println("Lista vacía.");
+            return;
+        }
+
+        System.out.print("Lista (Adelante): ");
+        // Empezamos en el 'inicio (0)'
+        int actual = inicio;
+        
+        // Recorremos mientras el índice actual no sea -1 (nulo)
+        while (actual != -1) {
+            //Esto imprime los nodos anterior y siguiente para guiarme con los enlaces
+            System.out.print("["+anterior[actual]+"]" + datos[actual] + "["+siguiente[actual]+"]"+ "-> ");
+            // Saltamos al siguiente usando el arreglo 'siguiente'
+            actual = siguiente[actual];
+        }
+        System.out.println("FIN");
     }
 }
