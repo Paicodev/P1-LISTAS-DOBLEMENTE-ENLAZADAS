@@ -17,32 +17,51 @@ public ListaDoble(int capacidad) {
     libre = 0;
 }
 
+//la Lista está vacía si el inicio es nulo (-1)
 public boolean estaVacia(){
-        return true;
+        return inicio == -1;
 }
 
+//La lista está llena si libre = capacidad
+public boolean estaLlena(){
+    return libre == capacidad;
+}
+
+//se pasa por parametro un valor para agregar un elemento
 public void agregar(int valor){
-    if(this.inicio == -1 || this.fin == -1){
-        inicio = datos[0];
-        fin = datos[0];
-        datos[0] = valor;
+    //Si está llena no nos deja agregar y sale del metodo
+    if (estaLlena()) {
+            System.out.println("Error: La lista está llena. No se puede agregar " + valor);
+            return;
+        }
+        
+        // Guardamos el valor
+        datos[libre] = valor;
+
+        // Enlazamos el nodo a la Lista, dependiendo del estado
+        if (estaVacia()) {
+            //Inicio y fin serian 0 al ser el primer nodo
+            inicio = libre;
+            fin = libre;
+            // 'anterior' y 'siguiente' ya están en -1 por la inicialización.
+        } else {
+            // Si ya hay elementos, lo agregamos al final.
+            // El 'siguiente' del que era el último (fin) ahora es el nuevo.
+            siguiente[fin] = libre;
+            
+            // El 'anterior' del nuevo es el que era el último (fin).
+            anterior[libre] = fin;
+            
+            // El 'siguiente' del nuevo es -1 (es el nuevo último).
+            // siguiente[libre] = -1;
+
+            // Actualizamos 'fin' para que apunte al nuevo último elemento.
+            fin = libre;
+        }
+
+        // Aumentamos 'libre' para la próxima vez
         libre++;
-    }else {
-        fin = datos[libre];
-    anterior[libre] = libre -1;
-    siguiente[libre] = -1;
-    datos[libre] = valor;
-    libre++;
-    }if(libre > capacidad ){
-        System.out.println("La lista está llena\n");
-    }
 }
 
-public void mostrarAdelante(){
-    for(int sig = 0; sig < capacidad; sig++){
-        System.out.println("Dato "+sig +" : "+datos[sig]);
-        System.out.println("Anterior: " +anterior[sig]);
-        System.out.println("Siguiente: "+siguiente[sig]);
     }
-}
 }
