@@ -14,6 +14,7 @@ public class App {
         lista.agregar(50);
         lista.agregar(60);
         //al toque pablito
+        //gordo sabes usar los commits?
         System.out.println("\nMostrando listas:");
         lista.mostrarAdelante();
     }
