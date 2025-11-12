@@ -12,7 +12,8 @@ public class App {
         lista.agregar(30);
         lista.agregar(40);
         lista.agregar(50);
-
+        lista.agregar(60);
+        
         System.out.println("\nMostrando listas:");
         lista.mostrarAdelante();
     }
