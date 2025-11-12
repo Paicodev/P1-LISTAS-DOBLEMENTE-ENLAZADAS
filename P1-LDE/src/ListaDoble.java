@@ -87,4 +87,13 @@ public void mostrarAdelante() {
         }
         System.out.println("FIN");
     }
+
+    public void eliminar(int posicion){
+        if(estaVacia()){
+            System.out.println("Lista vacia, no se puede eliminar un nodo\n");
+            return;
+        }
+
+        
+    }
 }
