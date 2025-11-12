@@ -87,4 +87,5 @@ public void mostrarAdelante() {
         }
         System.out.println("FIN");
     }
+    //no digas giladas pa
 }
