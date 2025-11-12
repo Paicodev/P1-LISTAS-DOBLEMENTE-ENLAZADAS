@@ -13,7 +13,7 @@ public class App {
         lista.agregar(40);
         lista.agregar(50);
         lista.agregar(60);
-        
+        //al toque pablito
         System.out.println("\nMostrando listas:");
         lista.mostrarAdelante();
     }
